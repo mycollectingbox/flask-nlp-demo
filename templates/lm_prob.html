@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block script %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/client/src/visualize.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Language Model applied to transliterated Foreign Name</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+        <div class="form-group">
+            {{render_field(form.detectField, class_="form-control")}}
+        </div>
+        
+        <!--
+        <div class="form-group">
+            <label for="inlineRadio1">Format</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="methodRadioOptions" id="inlineRadio1" value="CKIP">
+                <label class="form-check-label" for="inlineRadio1">CKIP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="methodRadioOptions" id="inlineRadio2" value="Stanford">
+                <label class="form-check-label" for="inlineRadio2">Stanford</label>
+            </div>
+        </div>
+        -->
+        
+        <p>
+            <input type="reset" class="btn btn-primary" value="Clear" id="reset">
+            <input type="submit" class="btn btn-primary" value="Analyze">
+        </p>
+    </form>
+
+    <div class='container'>
+        <p> 分析 {{input}}</p>
+        <div class="row">
+            <table class="table table-hover">
+                <thead>
+                    <tr style="background-color: #ffffcc">
+                        <th scope="col">#</th>
+                        <th scope="col">Begin</th>
+                        <th scope="col">End</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Probability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candidate in candidates %}
+                    <tr>
+                        <th scope="row">{{candidate[0]}}</th>
+                        <td>{{candidate[1]}}</td>
+                        <td>{{candidate[2]}}</td>
+                        <td>{{candidate[3]}}</td>
+                        <td>{{candidate[4]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

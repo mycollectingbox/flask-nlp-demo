@@ -1,0 +1,59 @@
+#ex1Slider .slider-selection {
+	background: rgb(211, 104, 34);
+}
+
+#theImgId {
+    max-width: 100%;
+}
+
+.text-mode {
+    white-space: pre-wrap;
+    font-size: 24px;
+}
+
+a.card-link::before{
+    content: "－";
+}
+
+a.card-link.collapsed::before{
+    content: "＋";
+}
+
+blockquote {
+    border-left: 5px solid #ccc;
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+blockquote p {
+    padding: 18px 18px;
+}
+
+blockquote footer {
+    padding-left: 18px;
+    padding-bottom: 10px;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+
+.branch-wrapper {
+    display: inline-block;
+    border-radius: 10px;
+    background-color: rgb(195, 238, 238);
+
+    padding: 6px 5px;
+    margin: 0px 6px;
+}
+
+.branch {
+    margin: 5px;
+}
+
+.role-data {
+    color: rgb(0 123 255 / 50%);
+    font-size: 15px;
+}
+
+div.row {
+    margin-bottom: 20px;
+}

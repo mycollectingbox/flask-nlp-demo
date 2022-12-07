@@ -1,0 +1,8 @@
+flask
+wtforms
+requests
+Pillow
+pycairo
+svgwrite
+jieba
+gensim

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visualize.css') }}" >
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/client/src/visualize.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>LTP 4.0 Visualization</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+        <div class="form-group">
+            {{render_field(form.sentenceField, class_="form-control")}}
+        </div>
+
+        <p>
+            <input type="reset" class="btn btn-primary" value="Clear" id="reset">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </p>
+    </form>
+
+    {% for img_str in img_str_list %}
+        <div class="row">
+            <h4>依存句法分析</h4>
+            {{ img_str[0]|safe }}
+        </div>
+        <div class="row">
+            <h4>語義依存分析</h4>
+            {{ img_str[1]|safe }}
+        </div>
+        <hr>
+    {% endfor %}
+
+    
+{% endblock %}
